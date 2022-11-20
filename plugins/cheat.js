@@ -1,12 +1,12 @@
-const free = 1000000000
-const prem = 1000000000
-const moneyfree = 1000000000
-const moneyprem = 1000000000
-const timeout = 6000
+const free = 100000000
+const prem = 100000000
+const moneyfree = 100000000
+const moneyprem = 100000000
+const timeout = 60000
 
 let handler = async (m, { conn, isPrems }) => {
-    let time = global.db.data.users[m.sender].lastclaim + 6000
-  if (new Date - global.db.data.users[m.sender].lastclaim < 6000) throw `Anda sudah mengklaim, klaim cheat hari ini\ntunggu selama ${msToTime(time - new Date())} lagi`
+    let time = global.db.data.users[m.sender].lastclaim + 60000
+  if (new Date - global.db.data.users[m.sender].lastclaim < 60000) throw `Anda sudah mengklaim, klaim cheat hari ini\ntunggu selama ${msToTime(time - new Date())} lagi`
       //  conn.reply(m.chat, `Anda sudah mengklaim dan mendapatkan :`, m)
         global.db.data.users[m.sender].exp += isPrems ? prem : free
         global.db.data.users[m.sender].money += isPrems ? moneyprem : moneyfree
@@ -22,7 +22,7 @@ handler.tags = ['owner']
 handler.command = /^(cheat)$/i
 handler.owner = true
 handler.mods = true
-handler.premium = false
+handler.premium = true
 handler.group = false
 handler.private = false
 
